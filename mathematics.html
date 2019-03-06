@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+<link href='main.css' rel='stylesheet' type='text/css'>
+<link href="responsive.css" rel="stylesheet" type="text/css" >
+<!--<link rel="stylesheet" href="bootstrap.min.css">
+<script src="jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<link href="mui.min.css" rel="stylesheet" type="text/css" />
+<script src="mui.min.js"></script>-->
+
+  <link rel="stylesheet" href="materialize.min.css">
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <script src="materialize.min.js"></script>
+  
+<style>
+.mui-col-md-4 img
+{
+    width:300px;
+    height:210px;
+    margin-bottom:50px;
+}
+</style>
+<style>
+header [role="progressbar"][aria-busy="true"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 8px;
+  width: 100%;
+  background-color: #159756;
+  -webkit-animation: preloader-background linear 3.5s infinite;
+          animation: preloader-background linear 3.5s infinite;
+}
+header [role="progressbar"][aria-busy="true"]::before, header [role="progressbar"][aria-busy="true"]::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 0;
+  height: 8px;
+  background: #afa;
+  -webkit-animation: preloader-front linear 3.5s infinite;
+          animation: preloader-front linear 3.5s infinite;
+  content: '';
+}
+header [role="progressbar"][aria-busy="true"]::before {
+  right: 50%;
+}
+header [role="progressbar"][aria-busy="true"]::after {
+  left: 50%;
+}
+
+@-webkit-keyframes preloader-background {
+  0%, 24.9% {
+    background-color: #159756;
+  }
+  25%, 49.9% {
+    background-color: #da4733;
+  }
+  50%, 74.9% {
+    background-color: #3b78e7;
+  }
+  75%, 100% {
+    background-color: #fdba2c;
+  }
+}
+
+@keyframes preloader-background {
+  0%, 24.9% {
+    background-color: #159756;
+  }
+  25%, 49.9% {
+    background-color: #da4733;
+  }
+  50%, 74.9% {
+    background-color: #3b78e7;
+  }
+  75%, 100% {
+    background-color: #fdba2c;
+  }
+}
+@-webkit-keyframes preloader-front {
+  0% {
+    width: 0;
+    background-color: #da4733;
+  }
+  24.9% {
+    width: 50%;
+    background-color: #da4733;
+  }
+  25% {
+    width: 0;
+    background-color: #3b78e7;
+  }
+  49.9% {
+    width: 50%;
+    background-color: #3b78e7;
+  }
+  50% {
+    width: 0;
+    background-color: #fdba2c;
+  }
+  74.9% {
+    width: 50%;
+    background-color: #fdba2c;
+  }
+  75% {
+    width: 0%;
+    background-color: #159756;
+  }
+  100% {
+    width: 50%;
+    background-color: #159756;
+  }
+}
+@keyframes preloader-front {
+  0% {
+    width: 0;
+    background-color: #da4733;
+  }
+  24.9% {
+    width: 50%;
+    background-color: #da4733;
+  }
+  25% {
+    width: 0;
+    background-color: #3b78e7;
+  }
+  49.9% {
+    width: 50%;
+    background-color: #3b78e7;
+  }
+  50% {
+    width: 0;
+    background-color: #fdba2c;
+  }
+  74.9% {
+    width: 50%;
+    background-color: #fdba2c;
+  }
+  75% {
+    width: 0%;
+    background-color: #159756;
+  }
+  100% {
+    width: 50%;
+    background-color: #159756;
+  }
+}
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
+header {
+  position: relative;
+  width: 100%;
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+:root main > * + * {
+  margin-top: 1em;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.2em;
+  font-weight: 200;
+}
+
+p {
+  margin: 0;
+  font-size: .875em;
+  font-weight: 400;
+}
+header
+{
+    
+    /*z-index: 2;*/
+    background-color: #090a0f !important;
+}
+
+.relative {
+  position: relative;
+}
+
+.loader-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -120px 0 0 -120px;
+  width: 240px;
+  height: 240px;
+}
+
+.loader-ring-light {
+  width: 240px;
+  height: 240px;
+  -moz-border-radius: 240px;
+  -webkit-border-radius: 240px;
+  border-radius: 240px;
+  -moz-box-shadow: 0 4px 0 #00abf2 inset;
+  -webkit-box-shadow: 0 4px 0 #00abf2 inset;
+  box-shadow: 0 4px 0 #00abf2 inset;
+  animation: rotate-360 2s linear infinite;
+}
+
+.loader-ring-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 240px;
+  -moz-border-radius: 240px;
+  -webkit-border-radius: 240px;
+  border-radius: 240px;
+  -moz-box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.3) inset;
+  -webkit-box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.3) inset;
+  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.3) inset;
+}
+
+@keyframes rotate-360 {
+  from {
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+</style>
+</head>
+<div>
+<div id='stars'></div>
+<div id='stars2'></div>
+<div id='stars3'></div>
+<div id="loader-ring" class='loader-ring'>
+  <div class='loader-ring-light'></div>
+  <div class='loader-ring-track'></div>
+</div>
+</div>
+<script>
+var myVar;
+
+function myFunction() {
+    myVar = setTimeout(showPage, 3000);
+}
+
+function showPage() {
+  document.getElementById("loader-ring").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
+</script>
+
+
+<body  onload="myFunction()" >
+    <!--<audio  autoplay>
+  <source src="interstellar.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>-->
+<!--<header>
+  <div aria-busy="true" aria-label="Loading, please wait." role="progressbar"></div>
+</header>-->
+<div id="myDiv"  style="display:none;">
+<header>
+<div class="row">
+    <!--<div aria-busy="true" aria-label="Loading, please wait." role="progressbar"></div>-->
+    <div class="col s12"><p></p></div>
+</div>
+</header>
+<main>
+<div id='stars'></div>
+<div id='stars2'></div>
+<div id='stars3'></div>
+<!--<div id='title'>
+  <span>
+    WELCOME TO
+  </span>
+  <br>
+  <span>
+    MY FAVOURITE WORLD
+  </span>
+</div>-->
+<div class="row">
+<div class="animate fadeInLeft three">
+    <div class="col s12 m4 l2">
+    <div class="container2" >
+  <div class='pulse-button'>
+      <img src="images/seo.png" style="width:100px">
+    </div>
+</div>
+</div>
+</div>
+<div class="animate fadeInRight four"><div class="col s12 m4 l8"><h1>Mathematics</h1></div></div>
+<div class="animate fadeInRight four">
+    <div class="col s12 m4 l2">
+<div class="container2" >
+  <div class='pulse-button'>
+      <img src="images/dotnet.png" style="width:100px">
+    </div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="animate fadeInDown two">
+  <div class="container1">
+		<!--<img src="images/coding.jpg">-->
+<div class="maths">
+  <div class="polygons">
+    <div class="pentagon">
+      <!--<div class="polygon-box">
+        <span class="triangle"></span>
+        <span class="triangle"></span>
+        <span class="triangle"></span>
+        <span class="triangle"></span>
+        <span class="triangle"></span>
+      </div>-->
+    </div>
+    <div class="hexagon">
+      <div class="polygon-box">
+        <span class="triangle"></span>
+        <span class="triangle"></span>
+        <span class="triangle"></span>
+        <span class="triangle"></span>
+        <span class="triangle"></span>
+        <span class="triangle"></span>
+      </div>
+    </div>
+    <div class="heptagon">
+      <div class="polygon-box">
+        <span class="triangle"></span>
+        <span class="triangle"></span>
+        <span class="triangle"></span>
+        <span class="triangle"></span>
+        <span class="triangle"></span>
+        <span class="triangle"></span>
+        <span class="triangle"></span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="animate fadeInRight three">
+<div class="col s12 m4 l8">
+    <div class="container2" style="float:left">
+  <div class='pulse-button'>
+      <img src="images/gradle-android.png" style="width:100px">
+    </div>
+</div>
+</div>
+</div>
+<div class="animate fadeInRight four">
+<div class="container2" style="float:right">
+  <div class='pulse-button'>
+      <img src="images/mysql.svg" style="width:100px">
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+<style>
+.container2 {
+  width: 200px;
+  height: 100%;
+  margin: 0 auto 0;
+  -webkit-perspective: 1000;
+  -webkit-backface-visibility: hidden;
+}
+
+.pulse-button {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+  display: block;
+  width: 100px;
+  height: 100px;
+  font-size: 1.3em;
+  font-weight: light;
+  font-family: 'Trebuchet MS', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 100px;
+  letter-spacing: -1px;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  /*background:white;*/
+  cursor: pointer;
+  box-shadow: 0 0 0 0 white;
+  -webkit-animation: pulse 1.5s infinite;
+}
+
+.pulse-button:hover {
+  -webkit-animation: none;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  70% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
+  }
+  100% {
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
+  }
+}
+
+</style>
+
+<style>
+@import url(https://fonts.googleapis.com/css?family=Anaheim);
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+	box-sizing: border-box;
+}
+*:before,
+*:after{
+	box-sizing: border-box;
+}
+html,
+body{
+	min-height: 100%;
+}
+
+h1{
+	display: table;
+	margin: 5% auto 0;
+	font-variant: petite-caps;
+	/*text-transform: uppercase;
+	font-family: 'Anaheim', sans-serif;*/
+	font-size: 4em;
+	font-weight: 400;
+	text-shadow: 2px 2px 5px #03a9f4;
+	/*text-shadow: 0 1px white, 0 2px black;*/
+	color:#FFF;
+}
+.container1{
+    /*top:100px;*/
+	margin: 4% auto;
+	width: 210px;
+	height: 140px;
+	position: relative;
+	perspective: 1000px;
+}
+#carousel{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	transform-style: preserve-3d;
+	animation: rotation 20s infinite linear;
+}
+#carousel:hover{
+	animation-play-state: paused;
+}
+#carousel figure{
+	display: block;
+	position: absolute;
+	width: 186px;
+	height: 116px;
+	/*height: 160px;*/
+	left: 10px;
+	top: 10px;
+	/*background: black;*/
+	background: #FFF;
+	overflow: hidden;
+	/*border: solid 5px black;*/
+	border: solid 2px #03a9f4;
+	/*box-shadow:0px 5px #000000;*/
+}
+#carousel figure:nth-child(1){transform: rotateY(0deg) translateZ(288px);}
+#carousel figure:nth-child(2) { transform: rotateY(40deg) translateZ(288px);}
+#carousel figure:nth-child(3) { transform: rotateY(80deg) translateZ(288px);}
+#carousel figure:nth-child(4) { transform: rotateY(120deg) translateZ(288px);}
+#carousel figure:nth-child(5) { transform: rotateY(160deg) translateZ(288px);}
+#carousel figure:nth-child(6) { transform: rotateY(200deg) translateZ(288px);}
+#carousel figure:nth-child(7) { transform: rotateY(240deg) translateZ(288px);}
+#carousel figure:nth-child(8) { transform: rotateY(280deg) translateZ(288px);}
+#carousel figure:nth-child(9) { transform: rotateY(320deg) translateZ(288px);}
+ img{
+	/*-webkit-filter: grayscale(1);*/
+	cursor: pointer;
+	transition: all .5s ease;
+}
+#carousel img
+{
+    width:186px;
+    height:116px;
+}
+img:hover{
+	-webkit-filter: grayscale(0);
+  transform: scale(1.2,1.2);
+}
+
+@keyframes rotation{
+	from{
+		transform: rotateY(0deg);
+	}
+	to{
+		transform: rotateY(360deg);
+	}
+}
+figure span
+{
+    color:#03a9f4;
+}
+.img-caption a{
+    text-decoration:none;
+}
+footer img
+{
+    width: 3.5em;
+     height: 3.5em;
+    border-radius: 50%
+}
+.img-caption{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding-top: 3em;
+  background: #A8A8A8;
+  background: rgba(0, 0, 0, .4);
+  color: #fff;
+  cursor: pointer;
+  text-align: center; 
+  font-size: 1.2em;
+  transition: all 0.8s ease-out;
+}
+
+.img-caption a{
+	color: #fff;
+}
+
+figure:hover .img-caption{
+	opacity: 0;
+}
+
+
+.top-bottom{
+  top: -100%;
+  left: 0;
+}
+
+
+figure:hover .img-caption{
+	top: 0;
+	left: 0;
+	transition: all 0.6s ease-out;
+}
+
+figure:hover .img-caption {
+	opacity: 1;
+}
+
+h3{
+    font-family: 'Anaheim', sans-serif;
+}
+
+/*=== Trigger  ===*/
+.animate {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.one {
+-webkit-animation-delay: 0.4s;
+-moz-animation-delay: 0.4s;
+animation-delay: 0.4s;
+}
+.two {
+-webkit-animation-delay: 1.7s;
+-moz-animation-delay: 1.7s;
+animation-delay: 1.7s;
+}
+.three {
+-webkit-animation-delay: 2.3s;
+-moz-animation-delay: 2.3s;
+animation-delay: 2.3s;
+}
+.four {
+-webkit-animation-delay: 3.3s;
+-moz-animation-delay: 3.3s;
+animation-delay: 3.3s;
+}
+
+
+/*=== Animations start here  ===*/
+/*=== FADE IN  ===*/
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+
+/*=== FADE IN DOWN ===*/
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+
+@-webkit-keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+
+
+@-webkit-keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+  footer{
+      /*z-index:2;*/
+      background-color:#1b2735 !important;
+  }
+ .grey-text  
+ {
+    font-variant: petite-caps;
+    color:#ffffff !important;
+ }
+</style>
+</main>
+
+<footer class="page-footer">
+          <div class="footer-copyright">
+            <div class="container">
+            <div class=" animate fadeInLeft three">
+                <a href="#!" class="waves-effect waves-circle waves-light btn-floating secondary-content">
+                <img src="images/phaneendra.jpg">
+                </a>
+            </div>
+            <span style="font-variant:petite-caps;color:#ffffff !important">T Phaneendra Babu  - Front End Developer</span>
+            <a class="grey-text text-lighten-4 right" href="#!">Designed by Phaneendra</a>
+            </div>
+          </div>
+</footer>
+</div>
+
+<style>
+
+
+.maths {
+  height: 100%;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+}
+
+.polygons {
+  width: 100%;
+  -webkit-align-self: center;
+  align-self: center;
+}
+
+.pentagon .polygon-box {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+.pentagon .triangle {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  height: 0;
+  width: 0;
+  border: 30px solid transparent;
+  border-bottom-color: #34495e;
+  border-top-width: 0;
+  border-bottom-width: 40px;
+  -moz-transform-origin: 50% 0.6%;
+  -ms-transform-origin: 50% 0.6%;
+  -webkit-transform-origin: 50% 0.6%;
+  transform-origin: 50% 0.6%;
+}
+.pentagon .triangle:nth-child(1) {
+  -moz-transform: rotate(72deg);
+  -ms-transform: rotate(72deg);
+  -webkit-transform: rotate(72deg);
+  transform: rotate(72deg);
+}
+.pentagon .triangle:nth-child(2) {
+  -moz-transform: rotate(144deg);
+  -ms-transform: rotate(144deg);
+  -webkit-transform: rotate(144deg);
+  transform: rotate(144deg);
+}
+.pentagon .triangle:nth-child(3) {
+  -moz-transform: rotate(216deg);
+  -ms-transform: rotate(216deg);
+  -webkit-transform: rotate(216deg);
+  transform: rotate(216deg);
+}
+.pentagon .triangle:nth-child(4) {
+  -moz-transform: rotate(288deg);
+  -ms-transform: rotate(288deg);
+  -webkit-transform: rotate(288deg);
+  transform: rotate(288deg);
+}
+.pentagon .triangle:nth-child(5) {
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.hexagon .polygon-box {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+.hexagon .triangle {
+  position: absolute;
+  top: 50px;
+  left: 25px;
+  height: 0;
+  width: 0;
+  border: 25px solid transparent;
+  border-bottom-color: #3498db;
+  border-top-width: 0;
+  border-bottom-width: 43px;
+  -moz-transform-origin: 50% 0.6%;
+  -ms-transform-origin: 50% 0.6%;
+  -webkit-transform-origin: 50% 0.6%;
+  transform-origin: 50% 0.6%;
+}
+.hexagon .triangle:nth-child(1) {
+  -moz-transform: rotate(60deg);
+  -ms-transform: rotate(60deg);
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+.hexagon .triangle:nth-child(2) {
+  -moz-transform: rotate(120deg);
+  -ms-transform: rotate(120deg);
+  -webkit-transform: rotate(120deg);
+  transform: rotate(120deg);
+}
+.hexagon .triangle:nth-child(3) {
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.hexagon .triangle:nth-child(4) {
+  -moz-transform: rotate(240deg);
+  -ms-transform: rotate(240deg);
+  -webkit-transform: rotate(240deg);
+  transform: rotate(240deg);
+}
+.hexagon .triangle:nth-child(5) {
+  -moz-transform: rotate(300deg);
+  -ms-transform: rotate(300deg);
+  -webkit-transform: rotate(300deg);
+  transform: rotate(300deg);
+}
+.hexagon .triangle:nth-child(6) {
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.heptagon .polygon-box {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+.heptagon .triangle {
+  position: absolute;
+  top: 50px;
+  left: 28px;
+  height: 0;
+  width: 0;
+  border: 22px solid transparent;
+  border-bottom-color: #f1c40f;
+  border-top-width: 0;
+  border-bottom-width: 45px;
+  -moz-transform-origin: 50% 0.6%;
+  -ms-transform-origin: 50% 0.6%;
+  -webkit-transform-origin: 50% 0.6%;
+  transform-origin: 50% 0.6%;
+}
+.heptagon .triangle:nth-child(1) {
+  -moz-transform: rotate(51.42857deg);
+  -ms-transform: rotate(51.42857deg);
+  -webkit-transform: rotate(51.42857deg);
+  transform: rotate(51.42857deg);
+}
+.heptagon .triangle:nth-child(2) {
+  -moz-transform: rotate(102.85714deg);
+  -ms-transform: rotate(102.85714deg);
+  -webkit-transform: rotate(102.85714deg);
+  transform: rotate(102.85714deg);
+}
+.heptagon .triangle:nth-child(3) {
+  -moz-transform: rotate(154.28571deg);
+  -ms-transform: rotate(154.28571deg);
+  -webkit-transform: rotate(154.28571deg);
+  transform: rotate(154.28571deg);
+}
+.heptagon .triangle:nth-child(4) {
+  -moz-transform: rotate(205.71429deg);
+  -ms-transform: rotate(205.71429deg);
+  -webkit-transform: rotate(205.71429deg);
+  transform: rotate(205.71429deg);
+}
+.heptagon .triangle:nth-child(5) {
+  -moz-transform: rotate(257.14286deg);
+  -ms-transform: rotate(257.14286deg);
+  -webkit-transform: rotate(257.14286deg);
+  transform: rotate(257.14286deg);
+}
+.heptagon .triangle:nth-child(6) {
+  -moz-transform: rotate(308.57143deg);
+  -ms-transform: rotate(308.57143deg);
+  -webkit-transform: rotate(308.57143deg);
+  transform: rotate(308.57143deg);
+}
+.heptagon .triangle:nth-child(7) {
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.pentagon,
+.heptagon,
+.hexagon {
+  display: inline-block;
+  margin: 2em;
+}
+
+
+
+</style>
+
+</body>
+</html>
